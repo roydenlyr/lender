@@ -3,12 +3,21 @@ public class Loan {
     private int amount;
     private boolean isPaid;
     private double interestRate;
+    static public int maxLoanAmount;
 
     public Loan(String borrower, int amount, double interestRate) {
         this.borrower = borrower;
         this.amount = amount;
         this.interestRate = interestRate;
         this.isPaid = false;
+
+        if (maxLoanAmount < amount) {
+            maxLoanAmount = amount;
+        }
+    }
+
+    public static void printMaxLoanAmount() {
+        System.out.println("max loan amount: " + maxLoanAmount);
     }
 
     public void setAsPaid() {
